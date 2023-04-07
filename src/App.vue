@@ -1,5 +1,16 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import jayRequest from './service'
+import { onMounted } from 'vue'
+
+const get15DaysWeatherByArea = () => {
+  jayRequest.request({
+    url: '/user/playlist?uid=32953014',
+    method: 'GET'
+  })
+}
+onMounted(async () => {
+  get15DaysWeatherByArea()
+})
 </script>
 
 <template>
@@ -11,7 +22,6 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
